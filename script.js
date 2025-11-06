@@ -78,4 +78,16 @@ async function sendMessage() {
         document.getElementById('send-button').disabled = false;
         userInput.focus();
     }
+
+    function generateUUID() {
+  // Une méthode simple pour générer un ID unique
+  return 'session-' + Date.now() + '-' + Math.random().toString(16).slice(2);
+}
+
+// Récupérer ou générer l'ID de session au chargement
+let sessionId = sessionStorage.getItem('chatSessionId');
+if (!sessionId) {
+  sessionId = generateUUID();
+  sessionStorage.setItem('chatSessionId', sessionId);
+}
 }
