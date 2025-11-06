@@ -5,7 +5,7 @@ document.getElementById('user-input').addEventListener('keypress', function(e) {
     }
 });
 
-const webhookUrl = "VOTRE_URL_WEBHOOK_N8N"; // <-- REMPLACER ICI
+const webhookUrl = "https://n8n.srv1108141.hstgr.cloud/webhook/12bab38b-ee2d-4dd0-bce9-154cfb5b92ec"; // <-- REMPLACER ICI
 
 function displayMessage(text, sender) {
     const messagesDisplay = document.getElementById('messages-display');
