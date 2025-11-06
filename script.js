@@ -5,6 +5,28 @@ function generateUUID() {
     return 'session-' + Date.now() + '-' + Math.random().toString(16).slice(2);
 }
 
+// script.js
+
+// 1. Initialisation : Envoi du message spécial
+// Cette fonction doit s'assurer qu'elle n'envoie 'INIT_CONVERSATION' qu'une seule fois.
+function initChat() {
+    // Récupérer ou créer l'ID de session (assurez-vous que cela est fait en premier)
+    let sessionId = getSessionId(); 
+    
+    // Si la session est nouvelle ou que le message d'accueil n'a pas encore été envoyé:
+    if (sessionStorage.getItem('hasGreeted') !== 'true') {
+        
+        // Simuler l'envoi du message "INIT_CONVERSATION"
+        sendMessage('INIT_CONVERSATION');
+        
+        // Empêcher l'envoi répété du message d'accueil lors des rechargements d'onglet
+        sessionStorage.setItem('hasGreeted', 'true');
+    }
+}
+
+// 2. Appeler l'initialisation au chargement de la page
+window.onload = initChat;
+
 /**
  * Force la réinitialisation de la session de chat.
  */
