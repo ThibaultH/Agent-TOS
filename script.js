@@ -1,4 +1,4 @@
-// --- 1. GESTION DE LA SESSION UNIQUE (Remonté pour éviter l'erreur de portée) ---
+// --- 1. GESTION DE LA SESSION UNIQUE ---
 
 function generateUUID() {
     // Une méthode simple pour générer un ID unique
@@ -30,15 +30,11 @@ document.getElementById('user-input').addEventListener('keypress', function(e) {
 
 /**
  * Déclenche le premier message de l'agent au chargement de la page.
- * (Décommentez cette partie si vous voulez que l'agent parle en premier)
  */
 window.addEventListener('load', () => {
     // Si la zone de messages est vide, on lance la conversation
     if (document.getElementById('messages-display').children.length === 0) {
-        // Optionnel : affiche le premier message statique si pas de lancement auto N8N
-        // displayMessage("Hey ! Attends, comment es-tu arrivé(e) là, au juste ? Raconte-moi un peu.", 'bot');
-        
-        // Ou déclenche le flux N8N pour le premier message (nécessite le flag INIT dans N8N)
+        // Déclenche le flux N8N pour le premier message
         sendMessage(true); 
     }
 });
@@ -136,5 +132,4 @@ async function sendMessage(isInitial = false) {
         document.getElementById('send-button').disabled = false;
         userInput.focus();
     }
-}
 }
