@@ -137,3 +137,4 @@ async function sendMessage(isInitial = false) {
         userInput.focus();
     }
 }
+}
