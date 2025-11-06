@@ -1,0 +1,62 @@
+/* --- Global Reset & Corps --- */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6; /* Fond léger */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* --- Conteneur Principal du Chat --- */
+#chat-container {
+    width: 100%;
+    max-width: 450px; /* Taille modérée, bonne pour mobile et desktop */
+    height: 70vh; /* Hauteur de l'écran visible */
+    min-height: 400px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Important pour les bords arrondis */
+}
+
+/* --- Zone d'Affichage des Messages --- */
+#messages-display {
+    flex-grow: 1; /* Prend l'espace restant */
+    padding: 20px;
+    overflow-y: auto; /* Permet le défilement des messages */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espace entre les messages */
+}
+
+/* Scrollbar personnalisée (Optionnel mais joli) */
+#messages-display::-webkit-scrollbar {
+    width: 8px;
+}
+#messages-display::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+#messages-display::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* --- Style des Messages Individuels --- */
+.message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    line-height: 1.4;
+    word-wrap: break-word; /* Casse les longs mots si nécessaire */
+}
+
+/* Message de l'Agent/Bot (Couleur de votre Marque) */
+.message.bot {
+    background-color: #e6f7ff; /* Bleu clair */
+    color: #004c66; /* Texte sombre pour contraste */
+    align-self: flex-start; /* Aligné à gauche */
+    border-bottom-left-radius: 4
