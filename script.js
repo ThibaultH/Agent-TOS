@@ -5,6 +5,15 @@ function generateUUID() {
     return 'session-' + Date.now() + '-' + Math.random().toString(16).slice(2);
 }
 
+/**
+ * Force la réinitialisation de la session de chat.
+ */
+function resetChatSession() {
+    sessionStorage.removeItem('chatSessionId'); // Supprime l'ancien ID
+    // Recharge la page pour que le code d'initialisation recrée un nouvel ID
+    window.location.reload(); 
+}
+
 // Récupérer ou générer l'ID de session au chargement de la page
 // L'ID est stocké dans sessionStorage (il est perdu quand l'onglet est fermé)
 let sessionId = sessionStorage.getItem('chatSessionId');
